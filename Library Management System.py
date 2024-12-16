@@ -38,6 +38,11 @@ class Library:
             # 검색 결과가 없는 경우 메시지를 출력합니다.
             print("\nNo books found with that keyword.")
 
+    def add_book(self, bookName):
+        # 새로운 책을 도서관 목록에 추가합니다.
+        self.books.append(bookName)
+        print(f"\n'{bookName}' has been added to the library.")
+
 
 class Student:
     def __init__(self):
@@ -93,7 +98,6 @@ if __name__ == "__main__":
     student = Student()
 
     while True:
-        
         welcomemsg = """
         ╔══════════════════════════════════════════════════╗
         ║            Welcome To Hanbat's Library           ║
@@ -107,7 +111,8 @@ if __name__ == "__main__":
         3. Return a book.
         4. View borrowed books.
         5. Search for a book.
-        6. Exit.
+        6. Add a new book to the library.
+        7. Exit.
         """
         # 사용자에게 선택할 메뉴를 출력합니다.
         print(welcomemsg)
@@ -116,10 +121,9 @@ if __name__ == "__main__":
         try:
             # 사용자가 입력한 옵션 번호를 정수로 변환합니다.
             a = int(input("Enter the option number: "))
-            
             # 입력 값이 메뉴 범위에 포함되지 않은 경우 경고 메시지를 출력합니다.
-            if a not in [1, 2, 3, 4, 5, 6]:
-                print("Invalid option! Please choose a number between 1 and 6.")
+            if a not in [1, 2, 3, 4, 5, 6, 7]:
+                print("Invalid option! Please choose a number between 1 and 7.")
                 continue
         except ValueError:
             # 사용자가 정수가 아닌 값을 입력했을 경우 경고 메시지를 출력합니다.
@@ -140,7 +144,7 @@ if __name__ == "__main__":
             print("----------------------------------------------------")
 
         elif a == 3:
-            # 사용자가 반납한 책을 도서관에 추가합니다.
+            # 사용자가 반납할 책의 이름을 입력받기 위해 student.return_book() 메서드를 호출합니다.
             book_name = student.return_book()
             # 사용자가 반납하려는 책이 대출 목록에 있는지 확인합니다.
             if book_name in student.borrowed_books:
@@ -165,6 +169,12 @@ if __name__ == "__main__":
             print("----------------------------------------------------")
 
         elif a == 6:
+            # 사용자가 새로운 책 제목을 입력하여 도서관에 추가하는 기능을 실행합니다.
+            new_book_name = input("Enter the name of the book you want to add: ")
+            TheGreatLibrary.add_book(new_book_name)
+            print("----------------------------------------------------")
+
+        elif a == 7:
             # 프로그램을 종료하며 사용자에게 작별 메시지를 출력합니다.
             print("Thanks for using Hanbat Library! Have a great day!")
             break
