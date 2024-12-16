@@ -129,7 +129,7 @@ if __name__ == "__main__":
         if a == 1:
             # 도서관에 현재 있는 책 목록을 표시합니다.
             TheGreatLibrary.display_available_books()
-            
+            print("----------------------------------------------------")
 
         elif a == 2:
             # 사용자가 요청한 책을 대출 처리합니다.
@@ -137,7 +137,7 @@ if __name__ == "__main__":
             if TheGreatLibrary.borrow_books(book_name):
                 # 책 대출 성공 시 학생의 대출 목록에 추가시킵니다.
                 student.borrow_book(book_name)  
-            
+            print("----------------------------------------------------")
 
         elif a == 3:
             # 사용자가 반납한 책을 도서관에 추가합니다.
@@ -151,18 +151,18 @@ if __name__ == "__main__":
             else:
                 # 대출 목록에 반납하려는 책이 없을 시 아래와 같은 경고 문구를 출력시킵니다.
                 print("\nYou cannot return this book as it is not in your borrowed list.")  
-            
+            print("----------------------------------------------------")
 
         elif a == 4:
             # 사용자가 현재 대출 중인 책 목록을 표시합니다.
             student.display_borrowed_books()
-            
+            print("----------------------------------------------------")
 
         elif a == 5:
             # 사용자가 특정 책을 검색할 수 있는 기능을 실행합니다.
             bookName = input("Enter the name or keyword of the book you want to search: ")
             TheGreatLibrary.search_book(bookName)
-            
+            print("----------------------------------------------------")
 
         elif a == 6:
             # 프로그램을 종료하며 사용자에게 작별 메시지를 출력합니다.
